@@ -1,35 +1,25 @@
-
 #include <stdio.h>
-
-
-//extern "C" void __stdcall asmfunc(void);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void __stdcall asmfunc(int p1 ,int p2);
+int __stdcall SumNegative(int arr, int count,int sum);
 
 #ifdef __cplusplus
 }
 #endif
 
-
 int main() {
     system("cls");
-    int abc;
-    printf("assembly proc calling from  from C! \n");
-getch();
-
-    
-    asmfunc(3,5); //assembly proc calling
-   
-   getch();
-    
-    
-    printf("back to  C! \n"); // printing in c
-    
-  
-    
+    int sum = 0;
+    int arr[] = {3, -5, 7, -2, -8, 10};  // Input array
+    int size = sizeof(arr) / sizeof(arr[0]);
+    // Call the assembly function to calculate the sum of negative numbers
+    int sum = SumNegative(arr, size,&sum);
+    // Display the result
+    printf("The sum of negative numbers is: %d\n", sum);
+    // Add a pause to see the result
+    system("pause");
     return 0;
 }
